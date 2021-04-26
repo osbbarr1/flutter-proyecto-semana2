@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 250,
+              width: 150,
               height: 150,
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(5.0),
@@ -194,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                       Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(5.0),
+                            padding: const EdgeInsets.all(3.0),
                             child: Text(
                               "Peso",
                               style: TextStyle(
@@ -213,34 +213,42 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Column(
                                 children: [
-                                  Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: FloatingActionButton(
-                                        onPressed: subtractPeso,
-                                        child: Icon(
-                                          Icons.remove,
-                                          size: 25,
-                                          color: Colors.white,
-                                        ),
-                                        backgroundColor:
-                                            Color.fromARGB(255, 90, 90, 90),
-                                      )),
+                                  SizedBox(
+                                    height: 50,
+                                    width: 50,
+                                    child: Padding(
+                                        padding: const EdgeInsets.all(3.0),
+                                        child: FloatingActionButton(
+                                          onPressed: subtractPeso,
+                                          child: Icon(
+                                            Icons.remove,
+                                            size: 25,
+                                            color: Colors.white,
+                                          ),
+                                          backgroundColor:
+                                              Color.fromARGB(255, 90, 90, 90),
+                                        )),
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: FloatingActionButton(
-                                        onPressed: addPeso,
-                                        child: Icon(
-                                          Icons.add,
-                                          size: 25,
-                                          color: Colors.white,
-                                        ),
-                                        backgroundColor:
-                                            Color.fromARGB(255, 90, 90, 90),
-                                      )),
+                                  SizedBox(
+                                    height: 50,
+                                    width: 50,
+                                    child: Padding(
+                                        padding: const EdgeInsets.all(3.0),
+                                        child: FloatingActionButton(
+                                          onPressed: addPeso,
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 25,
+                                            color: Colors.white,
+                                          ),
+                                          backgroundColor:
+                                              Color.fromARGB(255, 90, 90, 90),
+                                        )),
+                                  ),
                                 ],
                               ),
                             ],
