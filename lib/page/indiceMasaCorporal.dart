@@ -8,6 +8,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double value = 1;
+  int peso = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 50, 50, 50)),
+                      Color.fromARGB(255, 60, 60, 60)),
                   padding: MaterialStateProperty.all(EdgeInsets.all(10)),
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
@@ -77,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 50, 50, 50)),
+                      Color.fromARGB(255, 60, 60, 60)),
                   padding: MaterialStateProperty.all(EdgeInsets.all(10)),
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 50, 50, 50),
+                  color: Color.fromARGB(255, 60, 60, 60),
                   borderRadius: BorderRadius.all(Radius.circular(8.0))),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -179,11 +180,11 @@ class _HomePageState extends State<HomePage> {
           children: [
             Container(
               width: 250,
-              height: 100,
+              height: 150,
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: Color.fromARGB(255, 60, 60, 60),
                   borderRadius: BorderRadius.all(Radius.circular(8.0))),
               child: Column(
                 children: [
@@ -192,11 +193,58 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Column(
                         children: [
-                          Text(
-                            "Peso",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 100, 100, 100)),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              "Peso",
+                              style: TextStyle(
+                                  color: Color.fromARGB(150, 100, 100, 100)),
+                            ),
                           ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text("$peso",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                )),
+                          ),
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: FloatingActionButton(
+                                        onPressed: subtractPeso,
+                                        child: Icon(
+                                          Icons.remove,
+                                          size: 25,
+                                          color: Colors.white,
+                                        ),
+                                        backgroundColor:
+                                            Color.fromARGB(255, 90, 90, 90),
+                                      )),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: FloatingActionButton(
+                                        onPressed: addPeso,
+                                        child: Icon(
+                                          Icons.add,
+                                          size: 25,
+                                          color: Colors.white,
+                                        ),
+                                        backgroundColor:
+                                            Color.fromARGB(255, 90, 90, 90),
+                                      )),
+                                ],
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ],
@@ -261,5 +309,19 @@ class _HomePageState extends State<HomePage> {
         )
       ],
     );
+  }
+
+  addPeso() {
+    setState(() {
+      peso++;
+    });
+  }
+
+  subtractPeso() {
+    setState(() {
+      if (peso > 1) {
+        peso--;
+      }
+    });
   }
 }
