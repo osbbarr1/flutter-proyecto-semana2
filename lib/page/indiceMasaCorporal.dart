@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:imc/page/resultados.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class _HomePageState extends State<HomePage> {
   double value = 1;
   int peso = 1;
   int edad = 1;
+  List<Text> imc = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,96 +25,98 @@ class _HomePageState extends State<HomePage> {
   Widget body() {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 150,
-              height: 100,
-              margin: EdgeInsets.all(10),
-              padding: const EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0))),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 60, 60, 60)),
-                  padding: MaterialStateProperty.all(EdgeInsets.all(10)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 150,
+                height: 200,
+                margin: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 60, 60, 60)),
+                    padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                     ),
                   ),
-                ),
-                onPressed: () {},
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            Image(
-                              image: AssetImage('assets/male.png'),
-                              width: 25,
-                            ),
-                            Text(
-                              "Hombre",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 100, 100, 100)),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              width: 150,
-              height: 100,
-              margin: EdgeInsets.all(10),
-              padding: const EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0))),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 60, 60, 60)),
-                  padding: MaterialStateProperty.all(EdgeInsets.all(10)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            children: [
+                              Image(
+                                image: AssetImage('assets/male.png'),
+                                width: 20,
+                              ),
+                              Text(
+                                "Hombre",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 100, 100, 100)),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                onPressed: () {},
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            Image(
-                              image: AssetImage('assets/female.png'),
-                              width: 29,
-                            ),
-                            Text(
-                              "Mujer",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 100, 100, 100)),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
-                  ],
-                ),
               ),
-            )
-          ],
+              Container(
+                width: 150,
+                height: 100,
+                margin: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(5.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 60, 60, 60)),
+                    padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            children: [
+                              Image(
+                                image: AssetImage('assets/female.png'),
+                                width: 29,
+                              ),
+                              Text(
+                                "Mujer",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 100, 100, 100)),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -347,15 +351,25 @@ class _HomePageState extends State<HomePage> {
         ),
         Container(
           color: Colors.red,
-          height: 50,
+          height: 100,
           child: Padding(
-            padding: const EdgeInsets.all(1.0),
+            padding: const EdgeInsets.all(0.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      double estatura = (value / 100);
+                      double resultadoimc = (peso / (estatura * estatura));
+                      imc.add(Text("$resultadoimc"));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ResultadosPage(listadoResultados: imc)));
+                    },
                     child: Text(
                       "Calcular",
                       style: TextStyle(
