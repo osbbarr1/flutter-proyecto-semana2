@@ -25,65 +25,89 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 250,
+              width: 150,
               height: 100,
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
-                  color: Colors.black12,
                   borderRadius: BorderRadius.all(Radius.circular(8.0))),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Image(
-                            image: AssetImage('assets/male.png'),
-                            width: 25,
-                          ),
-                          Text(
-                            "Hombre",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 100, 100, 100)),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )
-                ],
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 50, 50, 50)),
+                  padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Image(
+                              image: AssetImage('assets/male.png'),
+                              width: 25,
+                            ),
+                            Text(
+                              "Hombre",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 100, 100, 100)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             Container(
-              width: 250,
+              width: 150,
               height: 100,
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
-                  color: Colors.black12,
                   borderRadius: BorderRadius.all(Radius.circular(8.0))),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Image(
-                            image: AssetImage('assets/female.png'),
-                            width: 29,
-                          ),
-                          Text(
-                            "Mujer",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 100, 100, 100)),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )
-                ],
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 50, 50, 50)),
+                  padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Image(
+                              image: AssetImage('assets/female.png'),
+                              width: 29,
+                            ),
+                            Text(
+                              "Mujer",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 100, 100, 100)),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             )
           ],
@@ -92,12 +116,12 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 540,
+              width: 250,
               height: 150,
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: Color.fromARGB(255, 50, 50, 50),
                   borderRadius: BorderRadius.all(Radius.circular(8.0))),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -182,7 +206,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: 250,
-              height: 100,
+              height: 50,
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
@@ -211,7 +235,7 @@ class _HomePageState extends State<HomePage> {
         ),
         Container(
           color: Colors.red,
-          height: 100,
+          height: 50,
           child: Padding(
             padding: const EdgeInsets.all(1.0),
             child: Column(
@@ -234,7 +258,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-        ),
+        )
       ],
     );
   }
