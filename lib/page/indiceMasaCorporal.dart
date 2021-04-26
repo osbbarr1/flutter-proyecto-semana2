@@ -9,6 +9,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double value = 1;
   int peso = 1;
+  int edad = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 250,
+              width: 320,
               height: 150,
               margin: EdgeInsets.all(10),
               padding: const EdgeInsets.all(10.0),
@@ -261,12 +262,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              width: 250,
-              height: 50,
+              width: 150,
+              height: 150,
               margin: EdgeInsets.all(10),
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(15.0),
               decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: Color.fromARGB(255, 60, 60, 60),
                   borderRadius: BorderRadius.all(Radius.circular(8.0))),
               child: Column(
                 children: [
@@ -275,18 +276,73 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Column(
                         children: [
-                          Text(
-                            "Edad",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 100, 100, 100)),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Text(
+                              "Edad",
+                              style: TextStyle(
+                                  color: Color.fromARGB(150, 100, 100, 100)),
+                            ),
                           ),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Text("$edad",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                )),
+                          ),
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  SizedBox(
+                                    height: 50,
+                                    width: 50,
+                                    child: Padding(
+                                        padding: const EdgeInsets.all(3.0),
+                                        child: FloatingActionButton(
+                                          onPressed: subtractEdad,
+                                          child: Icon(
+                                            Icons.remove,
+                                            size: 25,
+                                            color: Colors.white,
+                                          ),
+                                          backgroundColor:
+                                              Color.fromARGB(255, 90, 90, 90),
+                                        )),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  SizedBox(
+                                    height: 50,
+                                    width: 50,
+                                    child: Padding(
+                                        padding: const EdgeInsets.all(3.0),
+                                        child: FloatingActionButton(
+                                          onPressed: addEdad,
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 25,
+                                            color: Colors.white,
+                                          ),
+                                          backgroundColor:
+                                              Color.fromARGB(255, 90, 90, 90),
+                                        )),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ],
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
         Container(
@@ -329,6 +385,20 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (peso > 1) {
         peso--;
+      }
+    });
+  }
+
+  addEdad() {
+    setState(() {
+      edad++;
+    });
+  }
+
+  subtractEdad() {
+    setState(() {
+      if (peso > 1) {
+        edad--;
       }
     });
   }
