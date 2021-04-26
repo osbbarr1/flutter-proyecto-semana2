@@ -12,6 +12,9 @@ class _HomePageState extends State<HomePage> {
   int peso = 1;
   int edad = 1;
   List<Text> imc = [];
+  List<Text> resultadoIMC = [];
+  double estatura = 0.0;
+  double resultadoimc = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -363,7 +366,14 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       double estatura = (value / 100);
                       double resultadoimc = (peso / (estatura * estatura));
-                      imc.add(Text("$resultadoimc"));
+
+                      imc.add(Text(
+                        "$resultadoimc",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35,
+                        ),
+                      ));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -415,5 +425,17 @@ class _HomePageState extends State<HomePage> {
         edad--;
       }
     });
+  }
+
+  calculaResultadoIMC() {
+    estatura = (value / 100);
+    resultadoimc = (peso / (estatura * estatura));
+    resultadoIMC.add(Text(
+      "$resultadoimc",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 35,
+      ),
+    ));
   }
 }
