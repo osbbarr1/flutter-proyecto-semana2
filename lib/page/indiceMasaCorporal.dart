@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 width: 150,
-                height: 200,
-                margin: EdgeInsets.all(5),
+                height: 100,
+                margin: EdgeInsets.all(10),
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(8.0))),
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ],
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -365,7 +365,8 @@ class _HomePageState extends State<HomePage> {
                   child: ElevatedButton(
                     onPressed: () {
                       double estatura = (value / 100);
-                      double resultadoimc = (peso / (estatura * estatura));
+                      double resultadoimc = double.parse(
+                          (peso / (estatura * estatura)).toStringAsFixed(1));
 
                       imc.add(Text(
                         "$resultadoimc",

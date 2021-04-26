@@ -12,10 +12,11 @@ class ResultadosPage extends StatelessWidget {
         title: Text("Resultado de las operaciones"),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Container(
-              height: 50,
+              height: 30,
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Resultado",
@@ -26,7 +27,6 @@ class ResultadosPage extends StatelessWidget {
           ),
           Container(
             height: 350,
-            width: 550,
             margin: EdgeInsets.all(10),
             color: Colors.black12,
             child: Expanded(
@@ -44,7 +44,7 @@ class ResultadosPage extends StatelessWidget {
           ),
           Container(
             color: Colors.red,
-            height: 100,
+            height: 60,
             child: Padding(
               padding: const EdgeInsets.all(0.0),
               child: Column(
