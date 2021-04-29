@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   List<Text> resultadoIMC = [];
   double estatura = 0.0;
   double resultadoimc = 0.0;
+  int sexo = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +51,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    getsexo(0);
+                  },
                   child: Column(
                     children: [
                       Row(
@@ -93,7 +96,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    getsexo(1);
+                  },
                   child: Column(
                     children: [
                       Row(
@@ -364,22 +369,16 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      double estatura = (value / 100);
-                      double resultadoimc = double.parse(
-                          (peso / (estatura * estatura)).toStringAsFixed(1));
+                      estatura = (value);
 
-                      imc.add(Text(
-                        "$resultadoimc",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 35,
-                        ),
-                      ));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  ResultadosPage(listadoResultados: imc)));
+                              builder: (context) => ResultadosPage(
+                                  sexo: sexo,
+                                  estatura: estatura,
+                                  peso: peso,
+                                  edad: edad)));
                     },
                     child: Text(
                       "Calcular",
@@ -438,5 +437,9 @@ class _HomePageState extends State<HomePage> {
         fontSize: 35,
       ),
     ));
+  }
+
+  getsexo(int sex) {
+    this.sexo = sex;
   }
 }
